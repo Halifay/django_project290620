@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% if all_transactions_list %}
+        <ul>
+        {% for transaction in all_transactions_list %}
+            <li><a href="{% url 'receiver:info' transaction.0.customer.id %}">{{ transaction.1 }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No transactions in history.</p>
+    {% endif %}
+</body>
+</html>
